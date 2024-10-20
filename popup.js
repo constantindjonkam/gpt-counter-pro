@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   const o1PreviewStorageKey = "o1PreviewRequestData";
   const gpt4oStorageKey = "gpt4oRequestData";
 
@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const saveDateButton = document.getElementById("saveDateButton");
   let currentEditKey = null;
 
-  function updateCounts() {
-    chrome.storage.local.get([o1PreviewStorageKey, gpt4oStorageKey], function (result) {
+  const updateCounts = () => {
+    chrome.storage.local.get([o1PreviewStorageKey, gpt4oStorageKey], (result) => {
       const o1PreviewData = result[o1PreviewStorageKey] || {
         count: 0,
         startDate: new Date().getTime(),
@@ -28,20 +28,20 @@ document.addEventListener("DOMContentLoaded", function () {
         "gpt4oReset"
       ).textContent = `Resets: ${gpt4oResetDate.toLocaleDateString()} ${gpt4oResetDate.toLocaleTimeString()}`;
     });
-  }
+  };
 
-  function modifyCount(storageKey, increment) {
-    chrome.storage.local.get([storageKey], function (result) {
+  const modifyCount = (storageKey, increment) => {
+    chrome.storage.local.get([storageKey], (result) => {
       const storedData = result[storageKey] || { count: 0, startDate: new Date().getTime() };
       if (increment || storedData.count > 0) {
         storedData.count += increment ? 1 : -1;
         chrome.storage.local.set({ [storageKey]: storedData }, updateCounts);
       }
     });
-  }
+  };
 
   document.querySelectorAll(".button").forEach((button) => {
-    button.addEventListener("click", function () {
+    button.addEventListener("click", () => {
       const storageKey = this.getAttribute("data-key");
       const increment = this.getAttribute("data-increment") === "true";
       if (confirm(`Are you sure you want to ${increment ? "increment" : "decrement"} the count?`)) {
@@ -51,24 +51,24 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   document.querySelectorAll(".edit-date").forEach((editDate) => {
-    editDate.addEventListener("click", function () {
+    editDate.addEventListener("click", () => {
       currentEditKey = this.getAttribute("data-key");
       editDateModal.style.display = "block";
     });
   });
 
-  closeModalButton.addEventListener("click", function () {
+  closeModalButton.addEventListener("click", () => {
     editDateModal.style.display = "none";
   });
 
-  saveDateButton.addEventListener("click", function () {
+  saveDateButton.addEventListener("click", () => {
     const newStartDate = new Date(document.getElementById("newStartDate").value).getTime();
 
     if (currentEditKey && newStartDate) {
-      chrome.storage.local.get([currentEditKey], function (result) {
+      chrome.storage.local.get([currentEditKey], (result) => {
         const storedData = result[currentEditKey] || { count: 0, startDate: new Date().getTime() };
         storedData.startDate = newStartDate;
-        chrome.storage.local.set({ [currentEditKey]: storedData }, function () {
+        chrome.storage.local.set({ [currentEditKey]: storedData }, () => {
           editDateModal.style.display = "none";
           updateCounts();
         });
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  window.onclick = function (event) {
+  window.onclick = (event) => {
     if (event.target == editDateModal) {
       editDateModal.style.display = "none";
     }
