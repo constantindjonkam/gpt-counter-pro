@@ -1,6 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "GPT Counter",
+  "name": "GPT Counter Pro",
+  "description": "Tracks requests to models on chatgpt.com and displays usage count in a popup.",
   "version": "1.0.0",
   "permissions": ["webRequest", "storage"],
   "background": {
