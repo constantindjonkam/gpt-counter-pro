@@ -18,8 +18,8 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("o1PreviewCount").textContent = o1PreviewData.count;
       document.getElementById("gpt4oCount").textContent = gpt4oData.count;
 
-      const o1PreviewResetDate = new Date(o1PreviewData.startDate + 24 * 7 * 60 * 60 * 1000);
-      const gpt4oResetDate = new Date(gpt4oData.startDate + 3 * 60 * 60 * 1000);
+      const o1PreviewResetDate = new Date(o1PreviewData.startDate);
+      const gpt4oResetDate = new Date(gpt4oData.startDate);
 
       document.getElementById(
         "o1PreviewReset"
@@ -62,8 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   saveDateButton.addEventListener("click", function () {
-    // const newStartDate = new Date(document.getElementById("newStartDate").value).getTime();
-    const newStartDate = new Date(document.getElementById("newStartDate").value).toISOString();
+    const newStartDate = new Date(document.getElementById("newStartDate").value).getTime();
 
     if (currentEditKey && newStartDate) {
       chrome.storage.local.get([currentEditKey], function (result) {
