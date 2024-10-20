@@ -19,7 +19,7 @@ const models = [
 // }
 
 const updateRequestCount = (storageKey, resetIntervalHours) => {
-  chrome.storage.sync.get([storageKey], function (result) {
+  chrome.storage.sync.get([storageKey], (result) => {
     const storedData = result[storageKey] || { count: 0, startDate: new Date().getTime() };
     const currentDate = new Date().getTime();
     const hoursSinceFirstRequest = (currentDate - storedData.startDate) / (1000 * 60 * 60);
