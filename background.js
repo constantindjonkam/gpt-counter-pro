@@ -7,19 +7,19 @@ const models = [
 
 // no more needed
 // function loadInitialData(storageKey, initialCount, initialDate) {
-//   chrome.storage.local.get([storageKey], function (result) {
+//   chrome.storage.sync.get([storageKey], function (result) {
 //     if (!result[storageKey]) {
 //       const initialData = {
 //         count: initialCount,
 //         startDate: new Date(initialDate).getTime(),
 //       };
-//       chrome.storage.local.set({ [storageKey]: initialData });
+//       chrome.storage.sync.set({ [storageKey]: initialData });
 //     }
 //   });
 // }
 
 const updateRequestCount = (storageKey, resetIntervalHours) => {
-  chrome.storage.local.get([storageKey], function (result) {
+  chrome.storage.sync.get([storageKey], function (result) {
     const storedData = result[storageKey] || { count: 0, startDate: new Date().getTime() };
     const currentDate = new Date().getTime();
     const hoursSinceFirstRequest = (currentDate - storedData.startDate) / (1000 * 60 * 60);
@@ -31,7 +31,7 @@ const updateRequestCount = (storageKey, resetIntervalHours) => {
       storedData.count += 1;
     }
 
-    chrome.storage.local.set({ [storageKey]: storedData });
+    chrome.storage.sync.set({ [storageKey]: storedData });
   });
 };
 

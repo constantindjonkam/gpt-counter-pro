@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const updateCounts = () => {
     const modelStorageKeys = Array.from(modelsMap.values()).map((model) => model.storageKey);
 
-    chrome.storage.local.get(modelStorageKeys, (result) => {
+    chrome.storage.sync.get(modelStorageKeys, (result) => {
       modelsMap.forEach((model, key) => {
         const modelData = result[model.storageKey] || { count: 0, startDate: new Date().getTime() };
         document.getElementById(`${key}Count`).textContent = modelData.count;
@@ -32,12 +32,12 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const modifyCount = (storageKey, increment) => {
-    chrome.storage.local.get([storageKey], (result) => {
+    chrome.storage.sync.get([storageKey], (result) => {
       const storedData = result[storageKey] || { count: 0, startDate: new Date().getTime() };
 
       if (increment || storedData.count > 0) {
         storedData.count += increment ? 1 : -1;
-        chrome.storage.local.set({ [storageKey]: storedData }, updateCounts);
+        chrome.storage.sync.set({ [storageKey]: storedData }, updateCounts);
       }
     });
   };
@@ -68,10 +68,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const newStartDate = new Date(document.getElementById("newStartDate").value).getTime();
 
     if (currentEditKey && newStartDate) {
-      chrome.storage.local.get([currentEditKey], (result) => {
+      chrome.storage.sync.get([currentEditKey], (result) => {
         const storedData = result[currentEditKey] || { count: 0, startDate: new Date().getTime() };
         storedData.startDate = newStartDate;
-        chrome.storage.local.set({ [currentEditKey]: storedData }, () => {
+        chrome.storage.sync.set({ [currentEditKey]: storedData }, () => {
           editDateModal.style.display = "none";
           updateCounts();
         });
