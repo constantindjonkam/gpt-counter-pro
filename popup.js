@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const models = [
     ["o1Preview", { storageKey: o1PreviewStorageKey, resetIntervalHours: 24 * 7 }],
-    ["gpt-4o", { storageKey: gpt4oStorageKey, resetIntervalHours: 3 }],
+    ["gpt4o", { storageKey: gpt4oStorageKey, resetIntervalHours: 3 }],
   ];
   const modelsMap = new Map(models);
 
