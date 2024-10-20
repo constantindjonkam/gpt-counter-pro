@@ -1,5 +1,9 @@
 const o1PreviewStorageKey = "o1PreviewRequestData";
 const gpt4oStorageKey = "gpt4oRequestData";
+const models = [
+  { name: "o1-preview", storageKey: o1PreviewStorageKey, resetIntervalHours: 24 * 7 },
+  { name: "gpt-4o", storageKey: gpt4oStorageKey, resetIntervalHours: 3 },
+];
 
 // no more needed
 // function loadInitialData(storageKey, initialCount, initialDate) {
@@ -14,7 +18,7 @@ const gpt4oStorageKey = "gpt4oRequestData";
 //   });
 // }
 
-function updateRequestCount(storageKey, resetIntervalHours) {
+const updateRequestCount = (storageKey, resetIntervalHours) => {
   chrome.storage.local.get([storageKey], function (result) {
     const storedData = result[storageKey] || { count: 0, startDate: new Date().getTime() };
     const currentDate = new Date().getTime();
@@ -29,13 +33,13 @@ function updateRequestCount(storageKey, resetIntervalHours) {
 
     chrome.storage.local.set({ [storageKey]: storedData });
   });
-}
+};
 
 // loadInitialData(o1PreviewStorageKey, 5, "2024-10-18T13:00:00");
 // loadInitialData(gpt4oStorageKey, 10, "2024-10-19T23:00:00");
 
 chrome.webRequest.onBeforeRequest.addListener(
-  function (details) {
+  (details) => {
     if (
       details.url === "https://chatgpt.com/backend-api/conversation" &&
       details.method === "POST" &&
@@ -44,12 +48,11 @@ chrome.webRequest.onBeforeRequest.addListener(
       try {
         const requestBody = JSON.parse(new TextDecoder().decode(details.requestBody.raw[0].bytes));
         if (requestBody.model) {
-          if (requestBody.model.includes("o1-preview")) {
-            updateRequestCount(o1PreviewStorageKey, 24 * 7);
-          }
-          if (requestBody.model.includes("gpt-4o")) {
-            updateRequestCount(gpt4oStorageKey, 3);
-          }
+          models.forEach((model) => {
+            if (requestBody.model.includes(model.name)) {
+              updateRequestCount(model.storageKey, model.resetIntervalHours);
+            }
+          });
         }
       } catch (e) {
         console.error("Failed to parse request body:", e);
