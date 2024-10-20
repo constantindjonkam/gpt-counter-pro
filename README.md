@@ -27,6 +27,10 @@ This Chrome extension (works on all chromium browsers) tracks the number of requ
 
 Note: The program doesn't know how many requests was made and when it resets initially unless you specify it in the popup. It will start counting after your first request on chatgpt when you install it.
 
+## Screnshots
+
+![alt text](image.png) ![alt text](image-1.png)
+
 ## How It Works
 
 The extension listens for requests to chatgpt.com. When a conversation request matches either the o1-preview or gpt-4o models, it increments the corresponding count. The first request it captures will increment the count to 1 and set start date/time to the current date/time. It is your responsible to make sure this is correct and update it manually if needed. After the initial setup you no longer have to worry about the counter and date unless you use the same account on a different system/browser.
