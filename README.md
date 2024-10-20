@@ -1,4 +1,4 @@
-# GPT Counter Chrome Extension
+# GPT Counter Chromium Extension
 
 This Chrome extension (works on all chromium browsers) tracks the number of requests made to specific models (`o1-preview`, `gpt-4o` and `o1-mini`) on `chatgpt.com` and displays the usage count in a popup.
 
