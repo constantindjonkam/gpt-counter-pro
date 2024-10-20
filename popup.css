@@ -1,6 +1,7 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f0f0f5;
+  /* background-color: #f0f0f5; */
+  background-color: #121212;
   color: #333;
   margin: 0;
   padding: 0;
@@ -13,7 +14,8 @@ body {
 }
 
 h1 {
-  color: #444;
+  /* color: #444; */
+  color: #f0f0f5;
   font-size: 24px;
 }
 
@@ -24,7 +26,8 @@ h1 {
 }
 
 .counter {
-  background: #fff;
+  /* background: #fff; */
+  background-color: #282828;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   padding: 0 20px 20px 20px;
@@ -40,11 +43,13 @@ h2 {
   font-size: 36px;
   font-weight: bold;
   margin: 10px 0;
+  color: #f0f0f5;
 }
 
 .reset-info {
   font-size: 14px;
-  color: #888;
+  /* color: #888; */
+  color: #f0f0f5;
 }
 
 .edit-date {
@@ -58,14 +63,14 @@ h2 {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-top: 20px;
 }
 
 .button {
-  background-color: #0077cc;
+  background-color: #69eca4;
   border: none;
   color: white;
   padding: 10px 20px;
+  width: 48px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -80,7 +85,7 @@ h2 {
 }
 
 .button.decrement {
-  background-color: #cc0000;
+  background-color: #ff6500;
 }
 
 .button.decrement:hover {
