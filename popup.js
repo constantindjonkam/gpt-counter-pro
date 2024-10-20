@@ -2,37 +2,39 @@ document.addEventListener("DOMContentLoaded", () => {
   const o1PreviewStorageKey = "o1PreviewRequestData";
   const gpt4oStorageKey = "gpt4oRequestData";
 
+  const models = [
+    ["o1Preview", { storageKey: o1PreviewStorageKey, resetIntervalHours: 24 * 7 }],
+    ["gpt-4o", { storageKey: gpt4oStorageKey, resetIntervalHours: 3 }],
+  ];
+  const modelsMap = new Map(models);
+
   const editDateModal = document.getElementById("editDateModal");
   const closeModalButton = document.querySelector(".close");
   const saveDateButton = document.getElementById("saveDateButton");
   let currentEditKey = null;
 
   const updateCounts = () => {
-    chrome.storage.local.get([o1PreviewStorageKey, gpt4oStorageKey], (result) => {
-      const o1PreviewData = result[o1PreviewStorageKey] || {
-        count: 0,
-        startDate: new Date().getTime(),
-      };
-      const gpt4oData = result[gpt4oStorageKey] || { count: 0, startDate: new Date().getTime() };
+    const modelStorageKeys = Array.from(modelsMap.values()).map((model) => model.storageKey);
 
-      document.getElementById("o1PreviewCount").textContent = o1PreviewData.count;
-      document.getElementById("gpt4oCount").textContent = gpt4oData.count;
+    chrome.storage.local.get(modelStorageKeys, (result) => {
+      modelsMap.forEach((model, key) => {
+        const modelData = result[model.storageKey] || { count: 0, startDate: new Date().getTime() };
+        document.getElementById(`${key}Count`).textContent = modelData.count;
 
-      const o1PreviewResetDate = new Date(o1PreviewData.startDate);
-      const gpt4oResetDate = new Date(gpt4oData.startDate);
+        const resetDate = new Date(modelData.startDate);
+        resetDate.setHours(resetDate.getHours() + model.resetIntervalHours);
 
-      document.getElementById(
-        "o1PreviewReset"
-      ).textContent = `Resets: ${o1PreviewResetDate.toLocaleDateString()} ${o1PreviewResetDate.toLocaleTimeString()}`;
-      document.getElementById(
-        "gpt4oReset"
-      ).textContent = `Resets: ${gpt4oResetDate.toLocaleDateString()} ${gpt4oResetDate.toLocaleTimeString()}`;
+        document.getElementById(
+          `${key}Reset`
+        ).textContent = `Resets: ${resetDate.toLocaleDateString()} ${resetDate.toLocaleTimeString()}`;
+      });
     });
   };
 
   const modifyCount = (storageKey, increment) => {
     chrome.storage.local.get([storageKey], (result) => {
       const storedData = result[storageKey] || { count: 0, startDate: new Date().getTime() };
+
       if (increment || storedData.count > 0) {
         storedData.count += increment ? 1 : -1;
         chrome.storage.local.set({ [storageKey]: storedData }, updateCounts);
@@ -44,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", () => {
       const storageKey = button.getAttribute("data-key");
       const increment = button.getAttribute("data-increment") === "true";
+
       if (confirm(`Are you sure you want to ${increment ? "increment" : "decrement"} the count?`)) {
         modifyCount(storageKey, increment);
       }
