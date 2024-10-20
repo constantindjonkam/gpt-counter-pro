@@ -45,6 +45,7 @@ The extension listens for requests to chatgpt.com. When a conversation request m
 1. Allow counters to be reordered.
 2. Allow selection of models
 3. Sync count between different browers/systems in realtime
+4. Add option to show count on gpt web interface
 
 ## License
 
