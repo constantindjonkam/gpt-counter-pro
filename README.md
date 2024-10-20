@@ -1,10 +1,10 @@
 # GPT Counter Chrome Extension
 
-This Chrome extension (works on all chromium browsers) tracks the number of requests made to specific models (`o1-preview` and `gpt-4o`) on `chatgpt.com` and displays the usage count in a popup.
+This Chrome extension (works on all chromium browsers) tracks the number of requests made to specific models (`o1-preview`, `gpt-4o` and `o1-mini`) on `chatgpt.com` and displays the usage count in a popup.
 
 ## Features
 
-- Tracks requests to `o1-preview` and `gpt-4o` models.
+- Tracks requests to `o1-preview`, `gpt-4o` and `o1-mini` models.
 - Displays request counts for each model.
 - Allows manual increment and decrement of counts via popup buttons.
 - Provides an option to edit the start date and time for counting.
@@ -20,7 +20,7 @@ This Chrome extension (works on all chromium browsers) tracks the number of requ
 ## Usage
 
 1. Click the extension icon to open the popup.
-2. View the request counts for `o1-preview` and `gpt-4o`.
+2. View the request counts for `o1-preview`, `gpt-4o` and `o1-mini`.
 3. Use the buttons to increment or decrement counts.
 4. Click "Edit Date" to change the start date and time for counting.
 5. The counts are saved locally and doesn't currently sync across browsers/computers
@@ -29,7 +29,7 @@ Note: The program doesn't know how many requests was made and when it resets ini
 
 ## Screnshots
 
-![alt text](image.png) ![alt text](image-1.png)
+![Screenshot 1](publish/screenshot1.png) ![Screenshot 2](publish/screenshot2.png)
 
 ## How It Works
 
