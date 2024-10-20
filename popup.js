@@ -42,8 +42,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll(".button").forEach((button) => {
     button.addEventListener("click", () => {
-      const storageKey = this.getAttribute("data-key");
-      const increment = this.getAttribute("data-increment") === "true";
+      const storageKey = button.getAttribute("data-key");
+      const increment = button.getAttribute("data-increment") === "true";
       if (confirm(`Are you sure you want to ${increment ? "increment" : "decrement"} the count?`)) {
         modifyCount(storageKey, increment);
       }
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll(".edit-date").forEach((editDate) => {
     editDate.addEventListener("click", () => {
-      currentEditKey = this.getAttribute("data-key");
+      currentEditKey = editDate.getAttribute("data-key");
       editDateModal.style.display = "block";
     });
   });
