@@ -1,8 +1,10 @@
 const o1PreviewStorageKey = "o1PreviewRequestData";
 const gpt4oStorageKey = "gpt4oRequestData";
+const o1MiniStorageKey = "o1MiniRequestData";
 const models = [
   { name: "o1-preview", storageKey: o1PreviewStorageKey, resetIntervalHours: 24 * 7 },
   { name: "gpt-4o", storageKey: gpt4oStorageKey, resetIntervalHours: 3 },
+  { name: "o1-mini", storageKey: o1MiniStorageKey, resetIntervalHours: 24 },
 ];
 
 // no more needed

@@ -1,10 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
   const o1PreviewStorageKey = "o1PreviewRequestData";
   const gpt4oStorageKey = "gpt4oRequestData";
+  const o1MiniStorageKey = "o1MiniRequestData";
 
   const models = [
     ["o1Preview", { storageKey: o1PreviewStorageKey, resetIntervalHours: 24 * 7 }],
     ["gpt4o", { storageKey: gpt4oStorageKey, resetIntervalHours: 3 }],
+    ["o1Mini", { storageKey: o1MiniStorageKey, resetIntervalHours: 24 }],
   ];
   const modelsMap = new Map(models);
   const modelStorageKeys = Array.from(modelsMap.values()).map((model) => model.storageKey);
