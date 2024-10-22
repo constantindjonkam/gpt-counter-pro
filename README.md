@@ -2,6 +2,12 @@
 
 This Chrome extension (works on all chromium browsers) tracks the number of requests made to specific models (`o1-preview`, `gpt-4o` and `o1-mini`) on `chatgpt.com` and displays the usage count in a popup.
 
+## Download
+
+You can now download this extension on the chrome store.
+
+[<img src="./images/chromestore.png" alt="chrome store" height="50px" />](https://chromewebstore.google.com/detail/gpt-counter-pro/loemfejnlpfdblehpjkelkhfdjcnglpn)
+
 ## Features
 
 - Tracks requests to `o1-preview`, `gpt-4o` and `o1-mini` models.
@@ -10,7 +16,7 @@ This Chrome extension (works on all chromium browsers) tracks the number of requ
 - Provides an option to edit the start date and time for counting.
 - Reset dates are displayed for each counter.
 
-## Installation
+## Manual Installation
 
 1. Clone the repository or download the files.
 2. Go to `chrome://extensions/` in Google Chrome or `edge://extensions/` for Edge. It should work for all chromium based browers.
