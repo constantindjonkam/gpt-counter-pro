@@ -6,7 +6,7 @@ This Chrome extension (works on all chromium browsers) tracks the number of requ
 
 You can now download this extension on the chrome store.
 
-[<img src="./images/chromestore.png" alt="chrome store" height="50px" />](https://chromewebstore.google.com/detail/gpt-counter-pro/loemfejnlpfdblehpjkelkhfdjcnglpn)
+[<img src="./images/chromestore.png" alt="chrome store" height="50px" target="_blank" rel="noopener noreferrer" />](https://chromewebstore.google.com/detail/gpt-counter-pro/loemfejnlpfdblehpjkelkhfdjcnglpn)
 
 ## Features
 
