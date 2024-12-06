@@ -7,19 +7,6 @@ const models = [
   { name: "o1-mini", storageKey: o1MiniStorageKey, resetIntervalHours: 24 },
 ];
 
-// no more needed
-// function loadInitialData(storageKey, initialCount, initialDate) {
-//   chrome.storage.sync.get([storageKey], function (result) {
-//     if (!result[storageKey]) {
-//       const initialData = {
-//         count: initialCount,
-//         startDate: new Date(initialDate).getTime(),
-//       };
-//       chrome.storage.sync.set({ [storageKey]: initialData });
-//     }
-//   });
-// }
-
 const updateRequestCount = (storageKey, resetIntervalHours) => {
   chrome.storage.sync.get([storageKey], (result) => {
     const storedData = result[storageKey] || { count: 0, startDate: new Date().getTime() };
@@ -36,9 +23,6 @@ const updateRequestCount = (storageKey, resetIntervalHours) => {
     chrome.storage.sync.set({ [storageKey]: storedData });
   });
 };
-
-// loadInitialData(o1StorageKey, 5, "2024-10-18T13:00:00");
-// loadInitialData(gpt4oStorageKey, 10, "2024-10-19T23:00:00");
 
 chrome.webRequest.onBeforeRequest.addListener(
   (details) => {
