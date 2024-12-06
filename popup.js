@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (resetDate < new Date()) {
         setTimeout(() => {
           document.getElementById(`${key}Count`).textContent = 0;
-          document.getElementById(`${key}Reset`).textContent = `Resets: N/A`;
+          document.getElementById(`${key}Reset`).textContent = `N/A`;
         }, 100);
         chrome.storage.sync.set({ [model.storageKey]: { count: 0, startDate: null } });
       }
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const veryOldDate = new Date("1970-01-01T00:00:00");
 
         if (resetDate < veryOldDate) {
-          return (document.getElementById(`${key}Reset`).textContent = `Resets: N/A`);
+          return (document.getElementById(`${key}Reset`).textContent = `N/A`);
         }
 
         // Format the reset time without showing seconds
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         document.getElementById(
           `${key}Reset`
-        ).textContent = `Resets: ${resetDate.toLocaleDateString()} ${formattedTime}`;
+        ).textContent = `${resetDate.toLocaleDateString()} ${formattedTime}`;
       });
     });
   };
