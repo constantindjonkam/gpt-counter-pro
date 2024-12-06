@@ -7,10 +7,18 @@ const models = [
   { name: "o1-mini", storageKey: o1MiniStorageKey, resetIntervalHours: 24 },
 ];
 
+// get the current date rounded to the nearest minute
+const getRoundedDate = () => {
+  const now = new Date();
+  now.setSeconds(0, 0);
+
+  return now.getTime();
+};
+
 const updateRequestCount = (storageKey, resetIntervalHours) => {
   chrome.storage.sync.get([storageKey], (result) => {
-    const storedData = result[storageKey] || { count: 0, startDate: new Date().getTime() };
-    const currentDate = new Date().getTime();
+    const storedData = result[storageKey] || { count: 0, startDate: getRoundedDate() };
+    const currentDate = getRoundedDate();
     const hoursSinceFirstRequest = (currentDate - storedData.startDate) / (1000 * 60 * 60);
 
     if (hoursSinceFirstRequest >= resetIntervalHours) {
