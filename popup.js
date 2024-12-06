@@ -47,9 +47,15 @@ document.addEventListener("DOMContentLoaded", () => {
           return (document.getElementById(`${key}Reset`).textContent = `Resets: N/A`);
         }
 
+        // Format the reset time without showing seconds
+        const formattedTime = resetDate.toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        });
+
         document.getElementById(
           `${key}Reset`
-        ).textContent = `Resets: ${resetDate.toLocaleDateString()} ${resetDate.toLocaleTimeString()}`;
+        ).textContent = `Resets: ${resetDate.toLocaleDateString()} ${formattedTime}`;
       });
     });
   };
