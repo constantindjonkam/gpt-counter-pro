@@ -1,8 +1,8 @@
-const o1PreviewStorageKey = "o1PreviewRequestData";
+const o1StorageKey = "o1RequestData";
 const gpt4oStorageKey = "gpt4oRequestData";
 const o1MiniStorageKey = "o1MiniRequestData";
 const models = [
-  { name: "o1-preview", storageKey: o1PreviewStorageKey, resetIntervalHours: 24 * 7 },
+  { name: "o1", storageKey: o1StorageKey, resetIntervalHours: 24 * 7 },
   { name: "gpt-4o", storageKey: gpt4oStorageKey, resetIntervalHours: 3 },
   { name: "o1-mini", storageKey: o1MiniStorageKey, resetIntervalHours: 24 },
 ];
@@ -37,7 +37,7 @@ const updateRequestCount = (storageKey, resetIntervalHours) => {
   });
 };
 
-// loadInitialData(o1PreviewStorageKey, 5, "2024-10-18T13:00:00");
+// loadInitialData(o1StorageKey, 5, "2024-10-18T13:00:00");
 // loadInitialData(gpt4oStorageKey, 10, "2024-10-19T23:00:00");
 
 chrome.webRequest.onBeforeRequest.addListener(

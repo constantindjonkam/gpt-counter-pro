@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const o1PreviewStorageKey = "o1PreviewRequestData";
+  const o1StorageKey = "o1RequestData";
   const gpt4oStorageKey = "gpt4oRequestData";
   const o1MiniStorageKey = "o1MiniRequestData";
 
   const models = [
-    ["o1Preview", { storageKey: o1PreviewStorageKey, resetIntervalHours: 24 * 7 }],
+    ["o1", { storageKey: o1StorageKey, resetIntervalHours: 24 * 7 }],
     ["gpt4o", { storageKey: gpt4oStorageKey, resetIntervalHours: 3 }],
     ["o1Mini", { storageKey: o1MiniStorageKey, resetIntervalHours: 24 }],
   ];
