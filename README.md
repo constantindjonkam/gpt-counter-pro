@@ -49,9 +49,14 @@ The extension listens for requests to chatgpt.com. When a conversation request m
 ## Todo
 
 1. Allow counters to be reordered.
-2. Allow selection of models
+2. Allow selection of models to track.
 3. Sync count between different browers/systems in realtime
 4. Add option to show count on gpt web interface
+5. Add drowdown to pick subscription (free, plus or pro)
+6. Add option to reset count
+7. Add option to reset date
+8. Add graph to show daily/weekly usage over time
+9. Add o1-pro model
 
 ## License
 
