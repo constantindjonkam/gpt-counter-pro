@@ -43,7 +43,7 @@ chrome.webRequest.onBeforeRequest.addListener(
         const requestBody = JSON.parse(new TextDecoder().decode(details.requestBody.raw[0].bytes));
         if (requestBody.model) {
           models.forEach((model) => {
-            if (requestBody.model.includes(model.name)) {
+            if (requestBody.model == model.name) {
               updateRequestCount(model.storageKey, model.resetIntervalHours);
             }
           });
