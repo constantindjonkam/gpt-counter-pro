@@ -1,6 +1,6 @@
 # GPT Counter Pro Chromium Extension
 
-This Chrome extension (works on all chromium browsers) tracks the number of requests made to specific models (`o1`, `gpt-4o` and `o1-mini`) on `chatgpt.com` and displays the usage count in a popup.
+This Chrome extension (works on all chromium browsers) tracks the number of requests made to specific models (`o3-mini-high`, `gpt-4o` and `o3-mini`) on `chatgpt.com` and displays the usage count in a popup.
 
 ## Download
 
@@ -10,7 +10,7 @@ You can now download this extension on the chrome store.
 
 ## Features
 
-- Tracks requests to `o1`, `gpt-4o` and `o1-mini` models.
+- Tracks requests to `o3-mini-high`, `gpt-4o` and `o3-mini` models.
 - Displays request counts for each model.
 - Allows manual increment and decrement of counts via popup buttons.
 - Provides an option to edit the start date and time for counting.
@@ -26,7 +26,7 @@ You can now download this extension on the chrome store.
 ## Usage
 
 1. Click the extension icon to open the popup.
-2. View the request counts for `o1`, `gpt-4o` and `o1-mini`.
+2. View the request counts for `o3-mini-high`, `gpt-4o` and `o3-mini`.
 3. Use the buttons to increment or decrement counts.
 4. Click "Edit Date" to change the start date and time for counting.
 5. The counts are saved locally and doesn't currently sync across browsers/computers
@@ -39,7 +39,7 @@ Note: The program doesn't know how many requests was made and when it resets ini
 
 ## How It Works
 
-The extension listens for requests to chatgpt.com. When a conversation request matches either the o1 or gpt-4o models, it increments the corresponding count. The first request it captures will increment the count to 1 and set start date/time to the current date/time. It is your responsible to make sure this is correct and update it manually if needed. After the initial setup you no longer have to worry about the counter and date unless you use the same account on a different system/browser.
+The extension listens for requests to chatgpt.com. When a conversation request matches either the o3-mini-high or gpt-4o models, it increments the corresponding count. The first request it captures will increment the count to 1 and set start date/time to the current date/time. It is your responsible to make sure this is correct and update it manually if needed. After the initial setup you no longer have to worry about the counter and date unless you use the same account on a different system/browser.
 
 ## Permissions
 
