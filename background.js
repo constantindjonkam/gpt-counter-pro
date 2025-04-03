@@ -2,11 +2,13 @@ const o1StorageKey = "o1RequestData";
 const o3MiniHighStorageKey = "o3MiniHighRequestData";
 const gpt4oStorageKey = "gpt4oRequestData";
 const o3MiniStorageKey = "o3MiniRequestData";
+const gpt45StorageKey = "gpt45RequestData";
 const models = [
   { name: "o1", storageKey: o1StorageKey, resetIntervalHours: 24 * 7 },
   { name: "o3-mini-high", storageKey: o3MiniHighStorageKey, resetIntervalHours: 24 },
   { name: "gpt-4o", storageKey: gpt4oStorageKey, resetIntervalHours: 3 },
   { name: "o3-mini", storageKey: o3MiniStorageKey, resetIntervalHours: 24 },
+  { name: "gpt-4-5", storageKey: gpt45StorageKey, resetIntervalHours: 24 * 7 },
 ];
 
 // get the current date rounded to the nearest minute

@@ -3,12 +3,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const o3MiniHighStorageKey = "o3MiniHighRequestData";
   const gpt4oStorageKey = "gpt4oRequestData";
   const o3MiniStorageKey = "o3MiniRequestData";
+  const gpt45StorageKey = "gpt45RequestData";
 
   const models = [
     ["o1", { storageKey: o1StorageKey, resetIntervalHours: 24 * 7 }],
     ["o3MiniHigh", { storageKey: o3MiniHighStorageKey, resetIntervalHours: 24 }],
     ["gpt4o", { storageKey: gpt4oStorageKey, resetIntervalHours: 3 }],
     ["o3Mini", { storageKey: o3MiniStorageKey, resetIntervalHours: 24 }],
+    ["gpt45", { storageKey: gpt45StorageKey, resetIntervalHours: 24 * 7 }],
   ];
   const modelsMap = new Map(models);
   const modelStorageKeys = Array.from(modelsMap.values()).map((model) => model.storageKey);
