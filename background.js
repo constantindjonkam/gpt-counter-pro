@@ -1,13 +1,13 @@
-const o1StorageKey = "o1RequestData";
-const o3MiniHighStorageKey = "o3MiniHighRequestData";
+const o3StorageKey = "o3RequestData";
+const o4MiniHighStorageKey = "o4MiniHighRequestData";
 const gpt4oStorageKey = "gpt4oRequestData";
-const o3MiniStorageKey = "o3MiniRequestData";
+const o4MiniStorageKey = "o4MiniRequestData";
 const gpt45StorageKey = "gpt45RequestData";
 const models = [
-  { name: "o1", storageKey: o1StorageKey, resetIntervalHours: 24 * 7 },
-  { name: "o3-mini-high", storageKey: o3MiniHighStorageKey, resetIntervalHours: 24 },
+  { name: "o3", storageKey: o3StorageKey, resetIntervalHours: 24 * 7 },
+  { name: "o4-mini-high", storageKey: o4MiniHighStorageKey, resetIntervalHours: 24 },
   { name: "gpt-4o", storageKey: gpt4oStorageKey, resetIntervalHours: 3 },
-  { name: "o3-mini", storageKey: o3MiniStorageKey, resetIntervalHours: 24 },
+  { name: "o4-mini", storageKey: o4MiniStorageKey, resetIntervalHours: 24 },
   { name: "gpt-4-5", storageKey: gpt45StorageKey, resetIntervalHours: 24 * 7 },
 ];
 
